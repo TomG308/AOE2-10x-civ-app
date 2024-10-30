@@ -16,4 +16,4 @@ app.listen(5000, () => {
     console.log("Server started at http://localhost:5000")
 })
      
-// adding changes to make sure everyting worked
+console.log('TC was here')

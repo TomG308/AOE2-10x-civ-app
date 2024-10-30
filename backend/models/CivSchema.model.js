@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const civSchema = new mongoose.Schema({
+const CivSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
