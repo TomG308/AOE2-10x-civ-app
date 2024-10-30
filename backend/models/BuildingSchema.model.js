@@ -35,4 +35,3 @@ const BuildingSchema = new mongoose.Schema({
   });
   
   module.exports = mongoose.model('Building', BuildingSchema);
-  
