@@ -6,7 +6,7 @@ const UnitUpgradeSchema = new mongoose.Schema({
     wood: { type: Number },
     gold: { type: Number },
   },
-  id: { type: Number, unique: true },
+  id: { type: Number, unique: false },
   researchTime: { type: Number },
   internal_name: { type: String },
 });
