@@ -1,7 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const { getAllUnits } = require('../controllers/unitsController');
+import express from 'express';
+import { getAllUnits } from '../controllers/unitsController.js'; // Note the .js extension
 
+const router = express.Router();
+
+// Define the route to get all units
 router.get('/', getAllUnits);
 
-module.exports = router;
+// Export the router using ES module syntax
+export default router;

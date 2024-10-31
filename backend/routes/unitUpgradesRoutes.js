@@ -1,7 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const { getAllUnitUpgrades } = require('../controllers/unitUpgradesController');
+import express from 'express';
+import { getAllUnitUpgrades } from '../controllers/unitUpgradesController.js'; // Note the .js extension
 
+const router = express.Router();
+
+// Define the route to get all unit upgrades
 router.get('/', getAllUnitUpgrades);
 
-module.exports = router;
+// Export the router using ES module syntax
+export default router;

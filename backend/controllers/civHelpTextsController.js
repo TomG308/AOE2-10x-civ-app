@@ -1,7 +1,7 @@
-const CivHelpTexts = require('../models/CivHelpTexts');
+import CivHelpTexts from '../models/CivHelpTextsSchema.model.js';
 
 // Get all Civ Help Texts
-exports.getAllCivHelpTexts = async (req, res) => {
+export const getAllCivHelpTexts = async (req, res) => {
   try {
     const civHelpTexts = await CivHelpTexts.find();
     res.json(civHelpTexts);
@@ -9,5 +9,3 @@ exports.getAllCivHelpTexts = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-

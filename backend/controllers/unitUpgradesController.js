@@ -1,7 +1,7 @@
-const UnitUpgrade = require('../models/UnitUpgrade');
+import UnitUpgrade from '../models/UnitUpgradeSchema.model.js';
 
 // Get all Unit Upgrades
-exports.getAllUnitUpgrades = async (req, res) => {
+export const getAllUnitUpgrades = async (req, res) => {
   try {
     const unitUpgrades = await UnitUpgrade.find();
     res.json(unitUpgrades);

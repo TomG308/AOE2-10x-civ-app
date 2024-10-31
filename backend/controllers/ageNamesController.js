@@ -1,7 +1,7 @@
-const AgeNames = require('../models/AgeNames');
+import AgeNames from '../models/AgeNamesSchema.model.js';
 
 // Get all Age Names
-exports.getAllAgeNames = async (req, res) => {
+export const getAllAgeNames = async (req, res) => {
   try {
     const ageNames = await AgeNames.find();
     res.json(ageNames);

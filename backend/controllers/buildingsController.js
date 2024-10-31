@@ -1,7 +1,7 @@
-const Building = require('../models/Building');
+import Building from '../models/BuildingSchema.model.js';
 
 // Get all Buildings
-exports.getAllBuildings = async (req, res) => {
+export const getAllBuildings = async (req, res) => {
   try {
     const buildings = await Building.find();
     res.json(buildings);
@@ -9,4 +9,3 @@ exports.getAllBuildings = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-

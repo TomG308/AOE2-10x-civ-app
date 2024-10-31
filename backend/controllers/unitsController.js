@@ -1,7 +1,7 @@
-const Unit = require('../models/Unit');
+import Unit from '../models/UnitSchema.model.js';
 
 // Get all Units
-exports.getAllUnits = async (req, res) => {
+export const getAllUnits = async (req, res) => {
   try {
     const units = await Unit.find();
     res.json(units);
@@ -9,4 +9,3 @@ exports.getAllUnits = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-

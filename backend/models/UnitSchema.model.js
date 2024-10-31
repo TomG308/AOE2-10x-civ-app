@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 const UnitSchema = new mongoose.Schema({
   accuracyPercent: { type: Number },
   armours: [
@@ -36,4 +38,6 @@ const UnitSchema = new mongoose.Schema({
   internal_name: { type: String },
 });
 
-module.exports = mongoose.model('Unit', UnitSchema);
+// Export the model using ES module syntax
+const Unit = mongoose.model('Unit', UnitSchema);
+export default Unit;

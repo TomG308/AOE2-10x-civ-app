@@ -1,7 +1,9 @@
-const express = require('express');
+import express from 'express';
+import { getAllBuildings } from '../controllers/buildingsController.js'; // Update to ES module if needed
+
 const router = express.Router();
-const { getAllBuildings } = require('../controllers/buildingsController');
 
 router.get('/', getAllBuildings);
 
-module.exports = router;
+// Use default export for the router
+export default router;

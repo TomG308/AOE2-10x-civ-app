@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import { getAllCivHelpTexts } from '../controllers/civHelpTextsController.js';
+
 const router = express.Router();
-const { getAllCivHelpTexts } = require('../controllers/civHelpTextsController');
 
 router.get('/', getAllCivHelpTexts);
 
-module.exports = router;
+export default router;

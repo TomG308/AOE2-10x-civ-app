@@ -1,7 +1,11 @@
-const express = require('express');
+import express from 'express';
+import { getAllAgeNames } from '../controllers/ageNamesController.js'; // Make sure to update this controller too if it uses CommonJS
+
 const router = express.Router();
-const { getAllAgeNames } = require('../controllers/ageNamesController');
 
-router.get('/', getAllAgeNames);
+router.get('/', (req, res) => {
+    res.send('Age names route');
+});
 
-module.exports = router;
+// Use default export for the router
+export default router;

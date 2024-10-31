@@ -1,7 +1,7 @@
-const CivNames = require('../models/CivNames');
+import CivNames from '../models/CivNamesSchema.model.js';
 
 // Get all Civ Names
-exports.getAllCivNames = async (req, res) => {
+export const getAllCivNames = async (req, res) => {
   try {
     const civNames = await CivNames.find();
     res.json(civNames);
@@ -9,4 +9,3 @@ exports.getAllCivNames = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
