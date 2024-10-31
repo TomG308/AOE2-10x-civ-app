@@ -1,4 +1,4 @@
-import Unit from '../models/UnitSchema.model.js';
+import Unit from '../models/unitSchema.model.js';
 
 // Get all Units
 export const getAllUnits = async (req, res) => {
