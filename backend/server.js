@@ -72,25 +72,76 @@ const seedData = async () => {
       await CivNames.insertMany(civNamesData);
       console.log('Civ Names inserted');
 
-      // Insert buildings
-      const buildingsData = Object.values(jsonData.data.buildings);
-      await Building.insertMany(buildingsData);
-      console.log('Buildings inserted');
+// Insert buildings
+const buildingsData = Object.values(jsonData.data.buildings).map((item) => ({
+    accuracyPercent: item.AccuracyPercent,
+    armours: item.Armours.map(armour => ({ amount: armour.Amount, class: armour.Class })),
+    attack: item.Attack,
+    attacks: item.Attacks.map(attack => ({ amount: attack.Amount, class: attack.Class })),
+    cost: {
+      wood: item.Cost?.Wood || 0,
+      stone: item.Cost?.Stone || 0,
+      gold: item.Cost?.Gold || 0,
+      food: item.Cost?.Food || 0,
+    },
+    garrisonCapacity: item.GarrisonCapacity,
+    hp: item.HP,
+    id: item.id,
+    languageHelpId: item.LanguageHelpId,
+    languageNameId: item.LanguageNameId,
+    lineOfSight: item.LineOfSight,
+    meleeArmor: item.MeleeArmor,
+    minRange: item.MinRange,
+    pierceArmor: item.PierceArmor,
+    range: item.Range,
+    reloadTime: item.ReloadTime,
+    trainTime: item.TrainTime,
+    internal_name: item.internal_name
+  }));
+  
+  await Building.insertMany(buildingsData);
+  console.log('Buildings inserted');
+  
 
       // Insert techs
       const techsData = Object.values(jsonData.data.techs);
       await Tech.insertMany(techsData);
       console.log('Techs inserted');
 
-    //   // Insert civ data
-    //   const civData = Object.entries(jsonData.civ_names).map(([name]) => ({ name }));
-    //   await Civ.insertMany(civData);
-    //   console.log('Civ data inserted');
-
-      // Insert units
-      const unitsData = Object.values(jsonData.data.units || []); // Ensure units exist in JSON
-      await Unit.insertMany(unitsData);
-      console.log('Units inserted');
+// Insert units
+const unitsData = Object.values(jsonData.data.units).map((item) => ({
+    accuracyPercent: item.AccuracyPercent,
+    armours: item.Armours.map(armour => ({ amount: armour.Amount, class: armour.Class })),
+    attack: item.Attack,
+    attackDelaySeconds: item.AttackDelaySeconds,
+    attacks: item.Attacks.map(attack => ({ amount: attack.Amount, class: attack.Class })),
+    chargeEvent: item.ChargeEvent,
+    chargeType: item.ChargeType,
+    cost: item.Cost,
+    frameDelay: item.FrameDelay,
+    garrisonCapacity: item.GarrisonCapacity,
+    hp: item.HP,
+    id: item.id,
+    languageHelpId: item.LanguageHelpId,
+    languageNameId: item.LanguageNameId,
+    lineOfSight: item.LineOfSight,
+    maxCharge: item.MaxCharge,
+    meleeArmor: item.MeleeArmor,
+    minRange: item.MinRange,
+    pierceArmor: item.PierceArmor,
+    range: item.Range,
+    rechargeRate: item.RechargeRate,
+    reloadTime: item.ReloadTime,
+    speed: item.Speed,
+    trainTime: item.TrainTime,
+    trait: item.Trait,
+    traitPiece: item.TraitPiece,
+    internal_name: item.internal_name,
+  }));
+  
+  await Unit.insertMany(unitsData);
+  console.log('Units inserted');
+  
 
       // Insert unit upgrades
       const unitUpgradesData = Object.values(jsonData.data.unit_upgrades || []); // Ensure unit upgrades exist in JSON

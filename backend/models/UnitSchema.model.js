@@ -36,8 +36,17 @@ const UnitSchema = new mongoose.Schema({
   speed: { type: Number },
   trainTime: { type: Number },
   internal_name: { type: String },
+
+  // Additional fields
+  chargeEvent: { type: Number },
+  chargeType: { type: Number },
+  maxCharge: { type: Number },
+  minRange: { type: Number },
+  rechargeRate: { type: Number },
+  trait: { type: Number },
+  traitPiece: { type: Number },
 });
 
-// Export the model using ES module syntax
 const Unit = mongoose.model('Unit', UnitSchema);
 export default Unit;
+
